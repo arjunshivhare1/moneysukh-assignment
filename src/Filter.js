@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import jsonData from "./dataTable.json";
 
 const initialFilter = {
@@ -8,10 +8,6 @@ const initialFilter = {
 
 const Filters = ({ setData }) => {
   const [filterValue, setFilterValue] = useState(initialFilter);
-
-  useEffect(() => {
-    setData(jsonData);
-  }, []);
 
   const filterDataResult = (val) => {
     const filterData = jsonData.filter((subData) => {

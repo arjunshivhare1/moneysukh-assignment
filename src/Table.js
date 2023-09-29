@@ -2,7 +2,7 @@ import { useState } from "react";
 
 const TableData = ({ data = [] }) => {
   const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 500;
+  const itemsPerPage = 200;
 
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;

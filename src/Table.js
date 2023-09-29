@@ -17,16 +17,16 @@ const TableData = ({ data = [] }) => {
       <table>
         <thead>
           <tr>
-            <th>Segment</th>
-            <th>Instrument Type</th>
-            <th>Symbol</th>
-            <th>Option Type</th>
-            <th>Expiry Date</th>
-            <th>Strike Price</th>
-            <th>Bf Qty</th>
-            <th>Bf Rate</th>
-            <th>Carried Net Value</th>
-            <th>Day Buy Qty</th>
+            <th style={{ width: "15%" }}>Segment</th>
+            <th style={{ width: "15%" }}>Instrument Type</th>
+            <th style={{ width: "15%" }}>Symbol</th>
+            <th style={{ width: "10%" }}>Option Type</th>
+            <th style={{ width: "10%" }}>Expiry Date</th>
+            <th style={{ width: "5%" }}>Strike Price</th>
+            <th style={{ width: "5%" }}>Bf Qty</th>
+            <th style={{ width: "5%" }}>Bf Rate</th>
+            <th style={{ width: "10%" }}>Carried Net Value</th>
+            <th style={{ width: "10%" }}>Day Buy Qty</th>
           </tr>
         </thead>
         <tbody>

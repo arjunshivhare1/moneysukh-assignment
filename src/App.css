@@ -19,3 +19,10 @@ tr > th {
   background: #dddd;
   color: #0000ff;
 }
+
+.filter-section {
+  display: flex;
+  background-color: #5A5A5A;
+  color: #FFFFFF;
+  min-height: 80px;
+}

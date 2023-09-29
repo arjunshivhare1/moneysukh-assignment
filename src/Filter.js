@@ -73,7 +73,7 @@ const Filters = ({ setData }) => {
           type="text"
           value={filterValue.SYMBOL}
           name="SYMBOL"
-          placeholder="NIFTY, FINNIFTY, etc."
+          placeholder="NIFTY, SBIN, etc."
           onChange={handleFilter}
         />
       </div>

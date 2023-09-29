@@ -26,6 +26,9 @@ const Filters = ({ setData }) => {
       }
       if (val["VAL_INLAKH"]) {
         const filterParts = val["VAL_INLAKH"].match(/([^0-9.]+)([0-9.]+)/);
+        if (!filterParts) {
+          return matchFilters;
+        }
         const operator = filterParts[1];
         const filterNumber = parseFloat(filterParts[2]);
 

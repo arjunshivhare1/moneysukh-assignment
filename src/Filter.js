@@ -16,13 +16,16 @@ const Filters = ({ setData }) => {
       if (val["INSTRUMENT"]) {
         matchFilters =
           matchFilters &&
-          subData["INSTRUMENT"]?.toLowerCase() ===
-            val["INSTRUMENT"]?.toLowerCase();
+          subData["INSTRUMENT"]
+            ?.toLowerCase()
+            .includes(val["INSTRUMENT"]?.toLowerCase());
       }
       if (val["SYMBOL"]) {
         matchFilters =
           matchFilters &&
-          subData["SYMBOL"]?.toLowerCase() === val["SYMBOL"]?.toLowerCase();
+          subData["SYMBOL"]
+            ?.toLowerCase()
+            .includes(val["SYMBOL"]?.toLowerCase());
       }
       if (val["VAL_INLAKH"]) {
         const filterParts = val["VAL_INLAKH"].match(/([^0-9.]+)([0-9.]+)/);

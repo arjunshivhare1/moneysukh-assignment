@@ -25,7 +25,7 @@ const Filters = ({ setData }) => {
           subData["SYMBOL"]?.toLowerCase() === val["SYMBOL"]?.toLowerCase();
       }
       if (val["VAL_INLAKH"]) {
-        const filterParts = val["VAL_INLAKH"].match(/(\D+)(\d+)/);
+        const filterParts = val["VAL_INLAKH"].match(/([^0-9.]+)([0-9.]+)/);
         const operator = filterParts[1];
         const filterNumber = parseFloat(filterParts[2]);
 

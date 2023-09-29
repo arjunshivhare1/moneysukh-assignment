@@ -88,7 +88,7 @@ const Filters = ({ setData }) => {
           type="text"
           value={filterValue.VAL_INLAKH}
           name="VAL_INLAKH"
-          placeholder="> 100, < 100, == 100 etc."
+          placeholder="> 100, < 100, == 100"
           onChange={handleFilter}
         />
       </div>

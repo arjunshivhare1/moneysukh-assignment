@@ -25,8 +25,8 @@ const TableData = ({ data = [] }) => {
             <th style={{ width: "5%" }}>Strike Price</th>
             <th style={{ width: "5%" }}>Bf Qty</th>
             <th style={{ width: "5%" }}>Bf Rate</th>
-            <th style={{ width: "10%" }}>Carried Net Value</th>
-            <th style={{ width: "10%" }}>Day Buy Qty</th>
+            <th style={{ width: "15%" }}>Carried Net Value</th>
+            <th style={{ width: "5%" }}>Day Buy Qty</th>
           </tr>
         </thead>
         <tbody>

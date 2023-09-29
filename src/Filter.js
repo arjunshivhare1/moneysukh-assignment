@@ -4,6 +4,7 @@ import jsonData from "./dataTable.json";
 const initialFilter = {
   INSTRUMENT: "",
   SYMBOL: "",
+  VAL_INLAKH: "",
 };
 
 const Filters = ({ setData }) => {
@@ -11,19 +12,35 @@ const Filters = ({ setData }) => {
 
   const filterDataResult = (val) => {
     const filterData = jsonData.filter((subData) => {
-      let meetsFilters = true;
+      let matchFilters = true;
       if (val["INSTRUMENT"]) {
-        meetsFilters =
-          meetsFilters &&
+        matchFilters =
+          matchFilters &&
           subData["INSTRUMENT"]?.toLowerCase() ===
             val["INSTRUMENT"]?.toLowerCase();
       }
       if (val["SYMBOL"]) {
-        meetsFilters =
-          meetsFilters &&
+        matchFilters =
+          matchFilters &&
           subData["SYMBOL"]?.toLowerCase() === val["SYMBOL"]?.toLowerCase();
       }
-      return meetsFilters;
+      if (val["VAL_INLAKH"]) {
+        const filterParts = val["VAL_INLAKH"].split(" ");
+        const operator = filterParts[0];
+        const filterNumber = parseFloat(filterParts[1]);
+
+        if (!operator || isNaN(filterNumber)) {
+          return matchFilters;
+        }
+
+        if (operator === ">")
+          matchFilters = matchFilters && subData["VAL_INLAKH"] > filterNumber;
+        else if (operator === "<")
+          matchFilters = matchFilters && subData["VAL_INLAKH"] < filterNumber;
+        else if (operator === "==")
+          matchFilters = matchFilters && subData["VAL_INLAKH"] === filterNumber;
+      }
+      return matchFilters;
     });
     setData(filterData);
   };
@@ -65,8 +82,17 @@ const Filters = ({ setData }) => {
       <div style={{ width: "5%" }}>-</div>
       <div style={{ width: "5%" }}>-</div>
       <div style={{ width: "5%" }}>-</div>
-      <div style={{ width: "10%" }}>-</div>
-      <div style={{ width: "10%" }}>-</div>
+      <div style={{ width: "15%" }}>
+        <div>-</div>
+        <input
+          type="text"
+          value={filterValue.VAL_INLAKH}
+          name="VAL_INLAKH"
+          placeholder="> 100, < 100, == 100 etc."
+          onChange={handleFilter}
+        />
+      </div>
+      <div style={{ width: "5%" }}>-</div>
     </div>
   );
 };

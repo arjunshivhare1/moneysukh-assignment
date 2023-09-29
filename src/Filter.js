@@ -25,9 +25,9 @@ const Filters = ({ setData }) => {
           subData["SYMBOL"]?.toLowerCase() === val["SYMBOL"]?.toLowerCase();
       }
       if (val["VAL_INLAKH"]) {
-        const filterParts = val["VAL_INLAKH"].split(" ");
-        const operator = filterParts[0];
-        const filterNumber = parseFloat(filterParts[1]);
+        const filterParts = val["VAL_INLAKH"].match(/(\D+)(\d+)/);
+        const operator = filterParts[1];
+        const filterNumber = parseFloat(filterParts[2]);
 
         if (!operator || isNaN(filterNumber)) {
           return matchFilters;
@@ -37,7 +37,7 @@ const Filters = ({ setData }) => {
           matchFilters = matchFilters && subData["VAL_INLAKH"] > filterNumber;
         else if (operator === "<")
           matchFilters = matchFilters && subData["VAL_INLAKH"] < filterNumber;
-        else if (operator === "==")
+        else if (operator === "=")
           matchFilters = matchFilters && subData["VAL_INLAKH"] === filterNumber;
       }
       return matchFilters;
@@ -88,7 +88,7 @@ const Filters = ({ setData }) => {
           type="text"
           value={filterValue.VAL_INLAKH}
           name="VAL_INLAKH"
-          placeholder="> 100, < 100, == 100"
+          placeholder=">100, <100, =100"
           onChange={handleFilter}
         />
       </div>
